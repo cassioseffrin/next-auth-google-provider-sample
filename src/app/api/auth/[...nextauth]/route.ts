@@ -35,8 +35,7 @@ const handler = NextAuth({
           },
           body: JSON.stringify({
             email: credentials?.username,
-            password: credentials?.password,
-            domain: "provin" 
+            password: credentials?.password
           }),
         });
         const user = await res.json();
