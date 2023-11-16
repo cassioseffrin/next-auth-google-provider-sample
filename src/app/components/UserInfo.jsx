@@ -16,6 +16,7 @@ export   function UserInfo() {
           width={60}
           height={60}
         />
+        {session?.user?.image}
         <div>
           Nome do Xiru: <span className="font-bold">{session?.user?.name ??session?.firstName}</span>
         </div>
