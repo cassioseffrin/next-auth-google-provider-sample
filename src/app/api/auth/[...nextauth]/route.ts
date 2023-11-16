@@ -27,8 +27,8 @@ const handler = NextAuth({
       },
       async authorize(credentials, req) {
  
-
-        const res = await fetch("https://api.repag.com.br/auth/signin?domain=provin", {
+        const url = process.env.NEXT_PUBLIC_APP_URLAUTH ?? '';
+        const res = await fetch(url, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
