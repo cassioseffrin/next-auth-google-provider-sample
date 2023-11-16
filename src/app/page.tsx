@@ -1,5 +1,5 @@
 import Image from 'next/image'
-
+import UserInfo from 'src/components/UserInfo'
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -8,6 +8,8 @@ export default function Home() {
           Autenticacao com next-auth
           <code className="font-mono font-bold">codigo do xiru</code>
         </p>
+
+        <UserInfo/>
        </div>
  
     </main>
