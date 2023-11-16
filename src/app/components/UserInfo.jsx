@@ -16,13 +16,16 @@ export   function UserInfo() {
           width={60}
           height={60}
         />
-        {session?.user?.image}
+
+
         <div>
           Nome do Xiru: <span className="font-bold">{session?.user?.name ??session?.firstName}</span>
         </div>
         <div>
           Email: <span className="font-bold">{session?.email}</span>
         </div>
+        <code>dados completos:</code>
+        <pre> { JSON.stringify(session, null, 4)}</pre>
       </div>
     );
   } else {
