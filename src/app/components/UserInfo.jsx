@@ -9,7 +9,7 @@ export   function UserInfo() {
 
   if (status === "authenticated") {
     return (
-      <div className="shadow-xl p-8 rounded-md flex flex-col gap-3 bg-yellow-200">
+      <div className="shadow-xl p-8 rounded-md flex flex-col gap-3 bg-grey-600">
         <Image
           className="rounded-full"
           src={session?.user?.image ?? 'https://png.pngtree.com/png-clipart/20190520/original/pngtree-vector-users-icon-png-image_4144740.jpg'}
