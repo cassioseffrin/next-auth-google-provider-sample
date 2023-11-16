@@ -49,7 +49,7 @@ const handler = NextAuth({
       },
     }),
   ],
-  pages:{signIn:'/signin'},
+  // pages:{signIn:'/signin'},
   secret: 'asdfasdlfkjsdklfjsdlk345345'
 });
 
