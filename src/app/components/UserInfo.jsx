@@ -12,7 +12,7 @@ export   function UserInfo() {
       <div className="shadow-xl p-8 rounded-md flex flex-col gap-3 bg-yellow-200">
         <Image
           className="rounded-full"
-          src={session?.user?.image ?? ''}
+          src={session?.user?.image ?? 'https://png.pngtree.com/png-clipart/20190520/original/pngtree-vector-users-icon-png-image_4144740.jpg'}
           width={60}
           height={60}
         />
