@@ -17,10 +17,10 @@ export   function UserInfo() {
           height={60}
         />
         <div>
-          Nome do Xiru: <span className="font-bold">{session?.user?.name ??session?.user?.firstName}</span>
+          Nome do Xiru: <span className="font-bold">{session?.user?.name ??session?.firstName}</span>
         </div>
         <div>
-          Email: <span className="font-bold">{session?.user?.email}</span>
+          Email: <span className="font-bold">{session?.email}</span>
         </div>
       </div>
     );
