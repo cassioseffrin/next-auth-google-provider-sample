@@ -11,12 +11,11 @@ import { getServerSession } from "next-auth";
  const LoginPage = () => {
    const userName = useRef("");
    const pass = useRef("");
-  //  const [session, loading] = useSession()
    const [providers, setProviders] = useState({});
 
    useEffect(() => {
      (async () => {
-       const res = await getProviders();
+       const res = await getProviders() as any;
        setProviders(res);
      })();
    }, []);
@@ -50,7 +49,7 @@ import { getServerSession } from "next-auth";
          <Button onClick={onSubmit}>Entrar</Button>
        </div>
        <>
-      {Object.values(providers).map((provider) => (
+      {Object.values(providers).map((provider: any) => (
         <div key={provider.name}>
           <button onClick={() => signIn(provider.id)}>
             Logar com:  {provider.name}
