@@ -28,7 +28,7 @@ const LoginPage = () => {
   return (
     <div
       className={
-        "flex flex-col justify-center items-center  h-screen bg-gradient-to-br gap-1 from-cyan-300 to-sky-600"
+        "flex flex-col justify-center items-center  h-screen bg-gradient-to-br gap-1 from-grey-500 to-grey-800"
       }
     >
       <div className="px-7 py-4 shadow bg-white rounded-md flex flex-col gap-2">
