@@ -1,6 +1,4 @@
  
-
-
  "use client";
  
 import Button from "@/app/components/elements/Button";
@@ -23,8 +21,6 @@ import { getServerSession } from "next-auth";
      })();
    }, []);
 
- 
- 
    const onSubmit = async () => {
      const result = await signIn("credentials", {
        username: userName.current,
@@ -41,8 +37,6 @@ import { getServerSession } from "next-auth";
      >
        <div className="px-7 py-4 shadow bg-white rounded-md flex flex-col gap-2">
 
- 
-      
          <TextBox
            labelText="email"
            value={'cassioseffrin@gmail.com'}
@@ -55,7 +49,6 @@ import { getServerSession } from "next-auth";
          />
          <Button onClick={onSubmit}>Entrar</Button>
        </div>
-
        <>
       {Object.values(providers).map((provider) => (
         <div key={provider.name}>
@@ -71,6 +64,3 @@ import { getServerSession } from "next-auth";
  
  export default LoginPage;
 
-
- 
- 
