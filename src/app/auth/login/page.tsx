@@ -31,7 +31,7 @@ const LoginPage = () => {
         "flex flex-col justify-center items-center  h-screen bg-gradient-to-br gap-1 from-grey-500 to-grey-800"
       }
     >
-      <div className="px-7 py-4 shadow bg-grey rounded-md flex flex-col gap-2">
+      <div className="px-7 py-4 shadow  bg-white rounded-md flex flex-col gap-2">
         <TextBox
           labelText="email"
           value={"cassioseffrin@gmail.com"}
@@ -47,7 +47,7 @@ const LoginPage = () => {
       <>
         {Object.values(providers).map((provider: any) => (
           <div key={provider.name}>
-            <button onClick={() => signIn(provider.id)}>
+            <button onClick={() => signIn(provider.id,{ callbackUrl: '/' }) }>
               Logar com: {provider.name}
             </button>
           </div>

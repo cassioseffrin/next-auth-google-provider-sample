@@ -17,14 +17,15 @@ export default function Home() {
         <UserInfo />
       </div>
 
-      <>
-        Ordem das chamadas de callbacks no router.js:
+ 
+
         <ul>
+          <li>   Ordem das chamadas de callbacks no router.js</li>
           <li>1. Authorize </li>
           <li>2. JWT callback</li>
           <li> 3. Session Callback</li>
         </ul>
-      </>
+ 
     </main>
   );
 }
