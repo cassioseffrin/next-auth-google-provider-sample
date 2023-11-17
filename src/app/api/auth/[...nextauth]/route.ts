@@ -1,6 +1,7 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+ 
 const handler = NextAuth({
   logger: {
     error(code, metadata) {
@@ -26,6 +27,7 @@ const handler = NextAuth({
           label: "Usuário",
           type: "text",
           placeholder: "cassioseffrin@gmail.com",
+          value: "cassioseffrin@gmail.com",
         },
         password: { label: "Senha", type: "password" },
       },
@@ -51,38 +53,28 @@ const handler = NextAuth({
       },
     }),
   ],
+  pages  : {
+    signIn: '/auth/login',
+  },
 
   callbacks: {
    async  jwt({ token, user, account }) : Promise<any>{
 
-    console.log("session: ", {token,user,account} );
-      // const now = Date.now();
-      // const expires_in = token?.expires_in ?? now / 1000;
-      // const diffExpVsCurrentTime = expires_in - now / 1000 - 1090;
-      // const shouldRefreshTime = Math.round(diffExpVsCurrentTime);
-      // console.log(
-      //   `********* FAZER REFRESH DO TOKEN em ${shouldRefreshTime} segundos`
-      // );
-      // if (account && user) {
-      //   return {
-      //     ...user,
-      //     ...token,
-      //     isAuthenticated: true,
-      //   };
-      // }
-      // if (shouldRefreshTime > 404264) {
-      //   // if (shouldRefreshTime < 3600) {
-      //   return token;
-      // }
-      // token = await refreshAccessToken(token);
+     console.log("jwt: ", {token,user,account} );
 
-      // return token;
+    if (user) {
+      return {...token, id: user.id, whatsapp:   '(4)93434-3424'}
+
+    }
+    return token;
+ 
     },
 
    async  session({ session, token, user }): Promise< any> {
       console.log("session: ", {session,token,user} );
       // session.id = token.id;
-      return Promise.resolve({ ...token });
+      return Promise.resolve({ ...session, user: {...session.user, id:token.id, whatsapp: 'xxxw34234'} });
+ 
  
     }
   },
