@@ -31,25 +31,23 @@ const LoginPage = () => {
         "flex flex-col justify-center items-center  h-screen bg-gradient-to-br gap-1 from-grey-500 to-grey-800"
       }
     >
-      <div className="px-7 py-4 shadow  bg-white rounded-md flex flex-col gap-2">
-        <input
-          type="text"
-          placeholder="email"
+      <div className="px-7 py-4 shadow    rounded-md flex flex-col gap-2">
+        <TextBox
+          label="email"
           value={"cassioseffrin@gmail.com"}
           onChange={(e) => (userName.current = e.target.value)}
         />
-        <input
+        <TextBox
+          labelText="senha"
           type={"password"}
-          placeholder="senha"
           onChange={(e) => (pass.current = e.target.value)}
         />
-
         <Button onClick={onSubmit}>Entrar</Button>
       </div>
       <>
         {Object.values(providers).map((provider: any) => (
           <div key={provider.name}>
-            <button onClick={() => signIn(provider.id, { callbackUrl: "/" })}>
+            <button onClick={() => signIn(provider.id,{ callbackUrl: '/' }) }>
               Logar com: {provider.name}
             </button>
           </div>
