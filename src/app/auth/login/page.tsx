@@ -32,22 +32,24 @@ const LoginPage = () => {
       }
     >
       <div className="px-7 py-4 shadow  bg-white rounded-md flex flex-col gap-2">
-        <TextBox
-          labelText="email"
+        <input
+          type="text"
+          placeholder="email"
           value={"cassioseffrin@gmail.com"}
           onChange={(e) => (userName.current = e.target.value)}
         />
-        <TextBox
-          labelText="senha"
+        <input
           type={"password"}
+          placeholder="senha"
           onChange={(e) => (pass.current = e.target.value)}
         />
+
         <Button onClick={onSubmit}>Entrar</Button>
       </div>
       <>
         {Object.values(providers).map((provider: any) => (
           <div key={provider.name}>
-            <button onClick={() => signIn(provider.id,{ callbackUrl: '/' }) }>
+            <button onClick={() => signIn(provider.id, { callbackUrl: "/" })}>
               Logar com: {provider.name}
             </button>
           </div>
