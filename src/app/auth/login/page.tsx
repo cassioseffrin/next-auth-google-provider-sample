@@ -33,7 +33,7 @@ const LoginPage = () => {
     >
       <div className="px-7 py-4 shadow    rounded-md flex flex-col gap-2">
         <TextBox
-          label="email"
+          labelText="email"
           value={"cassioseffrin@gmail.com"}
           onChange={(e) => (userName.current = e.target.value)}
         />
