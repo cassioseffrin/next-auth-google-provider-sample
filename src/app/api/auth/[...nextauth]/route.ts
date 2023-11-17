@@ -56,7 +56,6 @@ const handler = NextAuth({
   pages  : {
     signIn: '/auth/login',
   },
-
   callbacks: {
    async  jwt({ token, user, account }) : Promise<any>{
 
@@ -69,20 +68,14 @@ const handler = NextAuth({
     return token;
  
     },
-
    async  session({ session, token, user }): Promise< any> {
       console.log("session: ", {session,token,user} );
       // session.id = token.id;
       return Promise.resolve({ ...session, user: {...session.user, id:token.id, whatsapp: 'xxxw34234'} });
  
- 
     }
   },
- 
-  // pages:{signIn:'/signin'},
-  secret: "asdfasdlfkjsdklfjsdlk345345",
-
-
+  secret: "39IKDF#S(C*SDGL0000ALGUMASECRETQUALQUER",
 
 });
 
