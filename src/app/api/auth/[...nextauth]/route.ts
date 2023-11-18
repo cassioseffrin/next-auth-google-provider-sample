@@ -1,7 +1,7 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
- 
+
 const handler = NextAuth({
   logger: {
     error(code, metadata) {
@@ -53,30 +53,42 @@ const handler = NextAuth({
       },
     }),
   ],
-  pages  : {
-    signIn: '/auth/login',
+  pages: {
+    signIn: "/auth/login",
   },
   callbacks: {
-   async  jwt({ token, user, account }) : Promise<any>{
+    async jwt({ token, user, account }): Promise<any> {
+      console.log("jwt: ", { token, user, account });
+      const userToInsert = { ...user, ...token };
+      const url = process.env.NEXT_PUBLIC_APP_UPDATE_USER ?? "";
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userToInsert),
+      });
 
-     console.log("jwt: ", {token,user,account} );
+      if (res.status == 200) {
+        const userApi = await res.json();
+        return userApi;
+      }
 
-    if (user) {
-      return {...token, id: user.id, whatsapp:   '(4)93434-3424'}
-
-    }
-    return token;
- 
+      if (user) {
+        return user;
+      }
+      return token;
     },
-   async  session({ session, token, user }): Promise< any> {
-      console.log("session: ", {session,token,user} );
+    async session({ session, token, user }): Promise<any> {
+      console.log("session: ", { session, token, user });
       // session.id = token.id;
-      return Promise.resolve({ ...session, user: {...session.user, id:token.id, whatsapp: 'xxxw34234'} });
- 
-    }
+      return Promise.resolve({
+        ...session,
+        user: { ...session.user, id: token.id, whatsapp: "xxxw34234" },
+      });
+    },
   },
   secret: "39IKDF#S(C*SDGL0000ALGUMASECRETQUALQUER",
-
 });
 
 export { handler as GET, handler as POST };
