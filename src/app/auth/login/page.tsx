@@ -55,7 +55,7 @@ const LoginPage = () => {
                 <button
                   onClick={() =>
                     signIn(provider.id, {
-                      callbackUrl: "https://provin.repag.com.br/analytics/app/",
+                      callbackUrl: "/",
                     })
                   }
                 >
