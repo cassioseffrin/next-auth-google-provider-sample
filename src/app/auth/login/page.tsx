@@ -45,13 +45,25 @@ const LoginPage = () => {
         <Button onClick={onSubmit}>Entrar</Button>
       </div>
       <>
-        {Object.values(providers).map((provider: any) => (
-          <div key={provider.name}>
-            <button onClick={() => signIn(provider.id,{ callbackUrl: '/' }) }>
-              Logar com: {provider.name}
-            </button>
-          </div>
-        ))}
+        {providers != null &&
+          Object.values(providers).map((provider: any) => {
+            {
+              console.log(provider);
+            }
+            return (
+              <div key={provider.name}>
+                <button
+                  onClick={() =>
+                    signIn(provider.id, {
+                      callbackUrl: "https://provin.repag.com.br/analytics/app/",
+                    })
+                  }
+                >
+                  Logar com: {provider.name}
+                </button>
+              </div>
+            );
+          })}
       </>
     </div>
   );
